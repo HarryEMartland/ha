@@ -20,15 +20,15 @@
 - id: return-home
   alias: Return Home
   initial_state: 'on'
-  triggers:
+  trigger:
     - platform: zone
       entity_id: person.harry
       zone: zone.home
       event: enter
-  conditions:
+  condition:
     - condition: sun
       after: sunset
-  actions:
+  action:
     - service: light.turn_on
       target:
         area_id: living_room
