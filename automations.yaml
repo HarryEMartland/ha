@@ -8,7 +8,7 @@
     - service: shell_command.git_pull_config
     - service: automation.reload
     - service: notify.persistent_notification
-      data:
+      data_template:
         title: Config Reloaded
         message: Configuration reloaded from git repository
     - service: logbook.log
