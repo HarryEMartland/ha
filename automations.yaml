@@ -5,13 +5,14 @@
     - platform: webhook
       webhook_id: "some_hook_id"
   action:
+    - delay: '00:00:10'
     - service: shell_command.git_pull_config
     - service: automation.reload
-    - service: notify.persistent_notification
-      data_template:
-        title: Config Reloaded
-        message: Configuration reloaded from git repository
     - service: logbook.log
       data_template:
         name: "Config Git Repository Updated: "
         message: "{{trigger.to_state.name}} changed from {{trigger.from_state.state}} to {{trigger.to_state.state}} by {{ trigger.to_state.attributes.source }}"
+    - service: notify.persistent_notification
+      data_template:
+        title: Config Reloaded
+        message: Configuration reloaded from git repository
