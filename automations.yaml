@@ -1,4 +1,3 @@
-automation:
-  trigger:
+trigger:
     - platform: webhook
       webhook_id: "some_hook_id"
