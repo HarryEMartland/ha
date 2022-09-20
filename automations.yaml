@@ -5,6 +5,8 @@
     - platform: webhook
       webhook_id: "some_hook_id"
   action:
+    - service: shell_command.git_pull_config
+    - service: automation.reload
     - service: logbook.log
       data_template:
         name: "Config Git Repo Updated: "
