@@ -1,3 +1,11 @@
-trigger:
+- id: config-git-updated
+  alias: 'Config Git Repo Updated'
+  initial_state: 'off'
+  trigger:
     - platform: webhook
       webhook_id: "some_hook_id"
+  action:
+    - service: logbook.log
+      data_template:
+        name: "Config Git Repo Updated: "
+        message: "{{trigger.to_state.name}} changed from {{trigger.from_state.state}} to {{trigger.to_state.state}} by {{ trigger.to_state.attributes.source }}"
