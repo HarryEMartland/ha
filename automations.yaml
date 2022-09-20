@@ -7,6 +7,9 @@
   action:
     - service: shell_command.git_pull_config
     - service: automation.reload
+    - service: notify.persistent_notification
+      title: Config Reloaded
+      message: Configuration reloaded from git repository
     - service: logbook.log
       data_template:
         name: "Config Git Repo Updated: "
