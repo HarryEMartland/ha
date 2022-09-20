@@ -1,0 +1,17 @@
+name: Validate-YAML
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate YAML file
+        run: yamllint abc.yml
+      - name: Call webook
+        run: curl -X POST -d '{}' https://home.harrymartland.co.uk/api/webhook/some_hook_id
