@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Validate YAML file
-        run: yamllint abc.yml
+        run: yamllint *.yml
       - name: Call webook
         run: curl -X POST -d '{}' https://home.harrymartland.co.uk/api/webhook/some_hook_id
