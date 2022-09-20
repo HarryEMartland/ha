@@ -16,3 +16,19 @@
       data_template:
         title: Config Reloaded
         message: Configuration reloaded from git repository
+
+- id: return-home
+  alias: Return Home
+  initial_state: 'on'
+  triggers:
+    - platform: zone
+      entity_id: person.harry
+      zone: zone.home
+      event: enter
+  conditions:
+    - condition: sun
+      after: sunset
+  actions:
+    - service: light.turn_on
+      target:
+        area_id: living_room
