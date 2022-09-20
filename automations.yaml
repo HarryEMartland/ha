@@ -1,6 +1,6 @@
 - id: config-git-updated
   alias: 'Config Git Repo Updated'
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     - platform: webhook
       webhook_id: "some_hook_id"
