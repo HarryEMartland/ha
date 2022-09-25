@@ -33,6 +33,11 @@
     - service: light.turn_on
       target:
         area_id: hall
+    - delay:
+      minutes: 2
+    - service: light.turn_off
+      target:
+        area_id: hall
 
 - id: return-home
   alias: Return Home
