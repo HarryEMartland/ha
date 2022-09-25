@@ -27,11 +27,8 @@
       device_id: 381d86e848b74e791ccbc32aa58ddb90
       domain: binary_sensor
   condition:
-    - and:
-        - condition: sun
-          after: sunset
-        - condition: time
-          before: "00:00:00"
+    - condition: sun
+      after: sunset
   action:
     - service: light.turn_on
       target:
