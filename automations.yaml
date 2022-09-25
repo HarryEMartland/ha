@@ -24,6 +24,7 @@
     - type: motion
       platform: device
       entity_id: binary_sensor.hms1_motion
+      device_id: 381d86e848b74e791ccbc32aa58ddb90
       domain: binary_sensor
   condition:
     - and:
