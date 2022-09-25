@@ -18,6 +18,7 @@
         message: Configuration reloaded from git repository
 
 - id: hall-sensor
+  mode: restart
   alias: Hall Sensor
   initial_state: 'on'
   trigger:
