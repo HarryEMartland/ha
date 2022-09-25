@@ -17,6 +17,25 @@
         title: Config Reloaded
         message: Configuration reloaded from git repository
 
+- id: hall-sensor
+  alias: Hall Sensor
+  initial_state: 'on'
+  trigger:
+    - type: motion
+      platform: device
+      entity_id: binary_sensor.hms1_motion
+      domain: binary_sensor
+  condition:
+    - and:
+        - condition: sun
+          after: sunset
+        - condition: time
+          before: "00:00:00"
+  action:
+    - service: light.turn_on
+      target:
+        area_id: hall
+
 - id: return-home
   alias: Return Home
   initial_state: 'on'
@@ -32,3 +51,6 @@
     - service: light.turn_on
       target:
         area_id: living_room
+    - service: light.turn_on
+      target:
+        area_id: hall
