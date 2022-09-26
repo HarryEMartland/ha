@@ -1,0 +1,6 @@
+.HA_VERSION
+.storage
+blueprints
+*.log
+home-assistant*
+zigbee.*
