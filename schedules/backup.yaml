@@ -1,0 +1,7 @@
+# Example configuration.yaml entry
+schedule:
+  backup:
+    name: "Backup schedule"
+    monday:
+      - from: "01:00:00"
+        to: "01:30:00"
