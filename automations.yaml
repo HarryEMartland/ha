@@ -50,6 +50,7 @@
   condition:
     - condition: sun
       after: sunset
+      offset: "-01:00:00"
   action:
     - service: light.turn_on
       target:
@@ -57,3 +58,18 @@
     - service: light.turn_on
       target:
         area_id: hall
+- id: sunset
+  alias: Sunset
+  initial_state: on
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    - platform: zone
+      entity_id: person.harry
+      zone: zone.home
+      event: enter
+  action:
+    - service: light.turn_on
+      target:
+        area_id: living_room
