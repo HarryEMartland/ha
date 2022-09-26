@@ -1,6 +1,5 @@
 - id: config-git-updated
   alias: 'Config Git Repo Updated'
-  initial_state: 'on'
   trigger:
     - platform: webhook
       webhook_id: "some_hook_id"
@@ -20,7 +19,6 @@
 - id: hall-sensor
   mode: restart
   alias: Hall Sensor
-  initial_state: 'on'
   trigger:
     - type: motion
       platform: device
@@ -41,7 +39,6 @@
 
 - id: return-home
   alias: Return Home
-  initial_state: 'on'
   trigger:
     - platform: zone
       entity_id: person.harry
@@ -59,7 +56,6 @@
         area_id: hall
 - id: sunset
   alias: Sunset
-  initial_state: 'on'
   trigger:
     platform: sun
     event: sunset
@@ -74,7 +70,6 @@
 
 - id: turn-off-night
   alias: Turn Everything off At Night
-  initial_state: 'on'
   trigger:
     platform: time
     at: "00:00:00"
@@ -86,7 +81,6 @@
 
 - id: work-event-start
   alias: Work Event Started
-  initial_state: 'on'
   trigger:
     platform: calendar
     event: start
