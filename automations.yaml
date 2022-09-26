@@ -64,10 +64,9 @@
     platform: sun
     event: sunset
   condition:
-    - platform: zone
+    - condition: zone
       entity_id: person.harry
       zone: zone.home
-      event: enter
   action:
     - service: light.turn_on
       target:
