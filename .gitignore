@@ -1,6 +1,6 @@
 .HA_VERSION
 .storage
-blueprints
+blueprints/automation/homeassistant
 *.log
 home-assistant*
 zigbee.*
