@@ -4,4 +4,3 @@ blueprints/automation/homeassistant
 *.log
 home-assistant*
 zigbee.*
-secrets.yaml
