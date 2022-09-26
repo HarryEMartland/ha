@@ -1,0 +1,13 @@
+id: sunset
+alias: Sunset
+trigger:
+  platform: sun
+  event: sunset
+condition:
+  - condition: zone
+    entity_id: person.harry
+    zone: zone.home
+action:
+  - service: light.turn_on
+    target:
+      area_id: living_room
