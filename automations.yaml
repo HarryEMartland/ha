@@ -190,9 +190,11 @@
         - schedule.vacuum_schedule
       attribute: next_event
   condition:
-    - condition: zone
-      entity_id: person.harry
-      zone: zone.home
+    - condition: not
+      conditions:
+        - condition: zone
+          entity_id: person.harry
+          zone: zone.home
   action:
     - device_id: e57e470cea06bb5dae71dfe8cf17af60
       domain: vacuum
