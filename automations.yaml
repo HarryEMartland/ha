@@ -154,7 +154,7 @@
   mode: single
 
 - id: stop-casting-tv-off
-  description: "Stop casting when tv is turn off"
+  alias: "Stop casting when tv is turn off"
   mode: single
   trigger:
     - platform: device
