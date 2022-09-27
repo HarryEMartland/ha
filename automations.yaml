@@ -130,3 +130,25 @@
   action:
     - service: hassio.backup_full
     - service: shell_command.remote_backup
+
+- id: on-tv-when-start-playing
+  alias: Turn on tv when start playing
+  description: ""
+  trigger:
+    - platform: device
+      device_id: a1a0f5a1ab03578cb054a97ed13f2308
+      domain: media_player
+      entity_id: media_player.living_room_tv
+      type: playing
+  condition:
+    condition: device
+    type: is_off
+    device_id: 6b00183c77229c552960226987b6c38d
+    entity_id: switch.tv
+    domain: switch
+  action:
+    - type: turn_on
+      device_id: 6b00183c77229c552960226987b6c38d
+      entity_id: switch.tv
+      domain: switch
+  mode: single
