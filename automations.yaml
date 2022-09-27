@@ -152,3 +152,31 @@
       entity_id: switch.tv
       domain: switch
   mode: single
+
+- id: stop-casting-tv-off
+  description: "Stop casting when tv is turn off"
+  mode: single
+  trigger:
+    - platform: device
+      type: turned_off
+      device_id: 6b00183c77229c552960226987b6c38d
+      entity_id: switch.tv
+      domain: switch
+  action:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.living_room_tv
+      data:
+        media_content_id: media-source://tts/google_translate?message=off
+        media_content_type: provider
+      metadata:
+        title: "off"
+        thumbnail: https://brands.home-assistant.io/_/google_translate/logo.png
+        media_class: app
+        children_media_class: null
+        navigateIds:
+          - {}
+          - media_content_type: app
+            media_content_id: media-source://tts
+          - media_content_type: provider
+            media_content_id: media-source://tts/google_translate?message=off
