@@ -187,3 +187,23 @@
       entity_id: vacuum.becki
       type: clean
   mode: single
+
+- id: "bed-time"
+  description: "Bed time, turn on bedroom side lights"
+  mode: single
+  trigger:
+    - platform: time
+      at: "22:00:00"
+  condition:
+    - condition: zone
+      entity_id: person.harry
+      zone: zone.home
+  action:
+    - type: turn_on
+      device_id: 52f6214af3a89051f636f70c25395350
+      entity_id: light.side_lamp
+      domain: light
+    - type: turn_off
+      device_id: eb05b4215531da4f3d45a8561eb80d6c
+      entity_id: light.hand_lamp
+      domain: light
