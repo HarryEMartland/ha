@@ -66,7 +66,7 @@
   action:
     - service: light.turn_on
       target:
-        area_id: living_room
+        entity_id: light.living_room_ceiling_lights
 
 - id: turn-off-night
   alias: Turn Everything off At Night
@@ -108,6 +108,7 @@
           media_content_id: media-source://tts
         - media_content_type: provider
           media_content_id: media-source://tts/google_translate?message=Next+meeting+starting+now
+
 - id: low-battery
   alias: Low battery level detection & notification for all battery sensors
   description: ''
