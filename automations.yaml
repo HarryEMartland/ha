@@ -67,6 +67,9 @@
     - service: light.turn_on
       target:
         entity_id: light.living_room_ceiling_lights
+    - service: light.turn_on
+      target:
+        entity_id: light.hand_lamp
 
 - id: turn-off-night
   alias: Turn Everything off At Night
