@@ -1,0 +1,5 @@
+entity_id: light.side_lamp_group
+platform: group
+name: "Bedroom Room Side Lamps"
+entities:
+  - light.side_lamp

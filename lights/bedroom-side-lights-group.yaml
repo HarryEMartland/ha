@@ -1,5 +1,0 @@
-entity_id: light.bedroom_side_lights
-platform: group
-name: "Bedroom Room Side Lights"
-entities:
-  - light.side_lamp
