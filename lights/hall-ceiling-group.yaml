@@ -1,4 +1,3 @@
-entity_id: light.hall_ceiling_group
 platform: group
 name: "Hall Ceiling Lights"
 entities:

@@ -1,4 +1,3 @@
-entity_id: light.living_room_ceiling_group
 platform: group
 name: "Living Room Ceiling Lights"
 entities:
