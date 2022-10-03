@@ -1,4 +1,4 @@
 platform: group
-name: "Bedroom Room Side Lamps"
+name: "Bedroom Room Side Lamp Group"
 entities:
   - light.side_lamp

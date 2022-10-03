@@ -1,5 +1,5 @@
 platform: group
-name: "Bedroom Ceiling Lights"
+name: "Bedroom Ceiling Group"
 entities:
   - light.b1
   - light.b2

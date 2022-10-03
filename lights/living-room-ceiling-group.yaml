@@ -1,5 +1,5 @@
 platform: group
-name: "Living Room Ceiling Lights"
+name: "Living Room Ceiling Group"
 entities:
   - light.l1
   - light.l2

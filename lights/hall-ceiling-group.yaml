@@ -1,5 +1,5 @@
 platform: group
-name: "Hall Ceiling Lights"
+name: "Hall Ceiling Group"
 entities:
   - light.h1
   - light.h2
