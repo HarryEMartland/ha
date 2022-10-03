@@ -1,3 +1,4 @@
+id: bedroom_side_lights
 platform: group
 name: "Bedroom Room Side Lights"
 entities:

@@ -1,3 +1,4 @@
+id: bedroom_ceiling_lights
 platform: group
 name: "Bedroom Ceiling Lights"
 entities:
