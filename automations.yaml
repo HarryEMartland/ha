@@ -129,7 +129,6 @@
     attribute: next_event
   action:
     - service: hassio.backup_full
-    - service: shell_command.remote_backup
 
 - id: on-tv-when-start-playing
   alias: Turn on tv when start playing
