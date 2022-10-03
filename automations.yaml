@@ -189,6 +189,7 @@
   mode: single
 
 - id: "bed-time"
+  alias: "Bed Time"
   description: "Bed time, turn on bedroom side lights"
   mode: single
   trigger:
