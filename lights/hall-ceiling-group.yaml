@@ -1,4 +1,3 @@
-id: hall_ceiling_lights
 platform: group
 name: "Hall Ceiling Lights"
 entities:
