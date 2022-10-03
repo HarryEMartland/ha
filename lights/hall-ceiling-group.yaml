@@ -1,0 +1,6 @@
+platform: group
+name: "Hall Ceiling Lights"
+entities:
+  - light.h1
+  - light.h2
+  - light.h3
