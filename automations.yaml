@@ -7,6 +7,7 @@
     - delay: '00:00:15'
     - service: shell_command.git_pull_config
     - service: automation.reload
+    - service: group.reload
     - service: logbook.log
       data_template:
         name: "Config Git Repository Updated: "
