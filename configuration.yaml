@@ -75,3 +75,4 @@ google_assistant:
       name: Bedroom Temperature
     light.hall_ceiling_group:
       name: Hall Ceiling Lights
+      room: Hall
