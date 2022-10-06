@@ -73,5 +73,5 @@ google_assistant:
       name: Hall Ceiling Lights
       room: Hall
     light.coffee_lamp:
-      name: Cofee Lamp
+      name: Coffee Lamp
       room: Hall
