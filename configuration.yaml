@@ -61,7 +61,6 @@ influxdb:
 
 google_assistant:
   project_id: home-assistant-362521
-  service_account: !include SERVICE_ACCOUNT.JSON
   report_state: true
   exposed_domains:
     - switch
