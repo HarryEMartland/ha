@@ -61,7 +61,7 @@ influxdb:
 
 google_assistant:
   project_id: home-assistant-362521
-  report_state: true
+  report_state: false
   expose_by_default: false
   entity_config:
     light.spot_light:
