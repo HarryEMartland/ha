@@ -62,6 +62,9 @@ influxdb:
 google_assistant:
   project_id: home-assistant-362521
   report_state: true
-  exposed_domains:
-    - switch
-    - light
+  expose_by_default: false
+  entity_config:
+    light.spot_light:
+      name: spot light
+      aliases:
+        - spot
