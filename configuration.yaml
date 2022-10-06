@@ -63,7 +63,7 @@ google_assistant:
   project_id: home-assistant-362521
   report_state: true
   expose_by_default: false
-  service_account: !include google_assistant_service_account.JSON
+  service_account: !include google_assistant_service_account.json
   entity_config:
     light.spot_light:
       name: Spot Light
