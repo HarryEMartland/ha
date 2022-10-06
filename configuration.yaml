@@ -61,10 +61,11 @@ influxdb:
 
 google_assistant:
   project_id: home-assistant-362521
-  report_state: false
+  report_state: true
   expose_by_default: false
+  service_account: !include google_assistant_service_account.JSON
   entity_config:
     light.spot_light:
-      name: spot light
+      name: Spot Light
       aliases:
         - spot
