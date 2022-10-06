@@ -73,3 +73,5 @@ google_assistant:
       name: Bedroom Humidity
     sensor.bt1_temperature:
       name: Bedroom Temperature
+    light.hall_ceiling_group:
+      name: Hall Ceiling Lights
