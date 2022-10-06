@@ -65,4 +65,3 @@ google_assistant:
   exposed_domains:
     - switch
     - light
-  entity_config:
