@@ -72,3 +72,6 @@ google_assistant:
     light.hall_ceiling_group:
       name: Hall Ceiling Lights
       room: Hall
+    light.coffee_lamp:
+      name: Cofee Lamp
+      room: Hall
