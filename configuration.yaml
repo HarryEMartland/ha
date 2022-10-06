@@ -69,3 +69,7 @@ google_assistant:
       name: Spot Light
       aliases:
         - spot
+    sensor.bt1_humidity:
+      name: Bedroom Humidity
+    sensor.bt1_temperature:
+      name: Bedroom Temperature
