@@ -175,27 +175,6 @@
       target:
         device_id: a1a0f5a1ab03578cb054a97ed13f2308
 
-- id: vacuum-noone-home
-  alias: Vacuum When No-One is Home
-  description: ""
-  trigger:
-    - platform: state
-      entity_id:
-        - schedule.vacuum_schedule
-      attribute: next_event
-  condition:
-    - condition: not
-      conditions:
-        - condition: zone
-          entity_id: person.harry
-          zone: zone.home
-  action:
-    - device_id: e57e470cea06bb5dae71dfe8cf17af60
-      domain: vacuum
-      entity_id: vacuum.becki
-      type: clean
-  mode: single
-
 - id: "bed-time"
   alias: "Bed Time"
   description: "Bed time, turn on bedroom side lights"
@@ -214,3 +193,39 @@
     - service: light.turn_off
       target:
         entity_id: light.hand_lamp
+
+- id: 'update-last-vacuumed'
+  alias: 'Update Last Vacuumed'
+  description: ''
+  trigger:
+    - platform: state
+      entity_id:
+        - vacuum.becki
+      to: docked
+  condition: []
+  action:
+    - service: input_datetime.set_datetime
+      data_template:
+        datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+      target:
+        entity_id: input_datetime.last_vacuumed.yaml
+  mode: single
+
+- id: 'vacuum-2-days'
+  alias: Vacuum Every 2 Days when Out the House
+  description: ''
+  trigger:
+    - platform: zone
+      entity_id: person.harry
+      zone: zone.home
+      event: leave
+  condition:
+    - condition: template
+      value_template: '{{now().timestamp() > (strptime(states(''input_datetime.last_vacuumed.yaml''),
+    "%Y-%m-%d %H:%M:%S")+ timedelta(days=2)).timestamp() }}'
+  action:
+    - service: vacuum.start
+      data: {}
+      target:
+        entity_id: vacuum.becki
+  mode: single
