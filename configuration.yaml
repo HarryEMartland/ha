@@ -38,11 +38,11 @@ template:
   - binary_sensor:
       - name: Snake Plant Needs Water
         unique_id: plant.snake_plant
-        state: "{{strptime(states('input_datetime.water_schedule'), '%Y-%m-%d %H:%M:%S').timestamp() > (strptime(states('input_datetime.snake_plant_last_watered'), '%Y-%m-%d %H:%M:%S')+ timedelta(days=2)).timestamp() }}"
+        state: "{{iif(strptime(states('input_datetime.water_schedule'), '%Y-%m-%d %H:%M:%S').timestamp() > (strptime(states('input_datetime.snake_plant_last_watered'), '%Y-%m-%d %H:%M:%S')+ timedelta(days=2)).timestamp(),'On', 'Off') }}"
         attributes:
           water_days: 14
           last_watered: 432432432
-        icon: "{{iif(states('binary_sensor.snake_plant_needs_water'), 'mdi:water-alert', 'mdi:sprout')}}"
+        icon: "{{iif(if_state('binary_sensor.snake_plant_needs_water', 'On'), 'mdi:water-alert', 'mdi:sprout')}}"
 
 zha:
   device_config:
