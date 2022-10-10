@@ -41,8 +41,7 @@ template:
         state: "{{iif(strptime(states('input_datetime.water_schedule'), '%Y-%m-%d %H:%M:%S').timestamp() > (strptime(states('input_datetime.snake_plant_last_watered'), '%Y-%m-%d %H:%M:%S')+ timedelta(days=2)).timestamp(),'On', 'Off') }}"
         attributes:
           water_days: 14
-          last_watered: 432432432
-        icon: "{{iif(is_state('binary_sensor.snake_plant', 'on'), 'mdi:water-alert', 'mdi:sprout')}}"
+        icon: "{{iif(this.state == 'On', 'mdi:water-alert', 'mdi:sprout')}}"
 
 zha:
   device_config:
