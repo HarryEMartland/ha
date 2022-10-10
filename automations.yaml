@@ -8,6 +8,8 @@
     - service: shell_command.git_pull_config
     - service: automation.reload
     - service: group.reload
+    - service: input_datetime.reload
+    - service: template.reload
     - service: logbook.log
       data_template:
         name: "Config Git Repository Updated: "
