@@ -34,6 +34,21 @@ schedule: !include_dir_named schedules
 light: !include_dir_list lights
 input_datetime: !include_dir_named input_datetimes
 
+template:
+  - binary_sensor:
+      - name: Snake Plant Needs Water
+        unique_id: plant.snake_plant
+        state: "{{strptime(states('input_datetime.water_schedule'), '%Y-%m-%d %H:%M:%S').timestamp() > (strptime(states('input_datetime.snake_plant_last_watered'), '%Y-%m-%d %H:%M:%S')+ timedelta(days=2)).timestamp() }}"
+        attributes:
+          water_days: 14
+          last_watered: 432432432
+        icon: >
+          {% if is_state("binary_sensor.snake_plant_needs_water)", "True") %}
+            mdi:sprout
+          {% else %}
+            mdi:water-alert
+          {% endif %}
+
 zha:
   device_config:
     84:71:27:ff:fe:93:17:24-1:    # format: {ieee}-{endpoint_id}
