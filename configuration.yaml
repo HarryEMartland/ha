@@ -42,7 +42,7 @@ template:
         attributes:
           water_days: 14
           last_watered: 432432432
-        icon: "{{iif(if_state('binary_sensor.snake_plant_needs_water', 'On'), 'mdi:water-alert', 'mdi:sprout')}}"
+        icon: "{{iif(is_state('binary_sensor.snake_plant_needs_water', 'On'), 'mdi:water-alert', 'mdi:sprout')}}"
 
 zha:
   device_config:
