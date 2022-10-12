@@ -35,6 +35,10 @@ light: !include_dir_list lights
 input_datetime: !include_dir_named input_datetimes
 timer: !include_dir_named timers
 template:
+  - binary_sensor:
+      - name: "Maintenance Required"
+        state: >
+          {{ is_state('timer.face_flannel', 'idle') or is_state('timer.snake_plant_parent', 'idle') }}
 
 zha:
   device_config:
