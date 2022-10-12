@@ -33,6 +33,7 @@ scene: !include scenes.yaml
 schedule: !include_dir_named schedules
 light: !include_dir_list lights
 input_datetime: !include_dir_named input_datetimes
+timer: !include_dir_named timers
 
 template:
   - binary_sensor:
