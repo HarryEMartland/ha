@@ -248,3 +248,26 @@
       target:
         entity_id: "{{ trigger.event.data.tag_id[12:] }}"
   mode: single
+
+- id: maintenance-required
+  alias: Maintenance is Required
+  description: ""
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.maintenance_required
+      to: "on"
+    - platform: time
+      at: "18:00:00"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.maintenance_required
+      state: "on"
+    - condition: zone
+      entity_id: person.harry
+      zone: zone.home
+  action:
+    - service: notify.notify
+      data:
+        message: Maintenance is required
