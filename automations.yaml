@@ -10,6 +10,7 @@
     - service: group.reload
     - service: input_datetime.reload
     - service: template.reload
+    - service: timer.reload
     - service: logbook.log
       data_template:
         name: "Config Git Repository Updated: "
