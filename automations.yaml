@@ -271,3 +271,7 @@
     - service: notify.notify
       data:
         message: Maintenance is required
+    - service: persistent_notification.create
+      data:
+        message: Maintenance Required
+        notification_id: maintenance-required
