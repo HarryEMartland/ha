@@ -38,7 +38,7 @@ template:
   - binary_sensor:
       - name: "Maintenance Required"
         state: >
-          {{ is_state('timer.face_flannel', 'idle') or is_state('timer.snake_plant_parent', 'idle') }}
+          {{ is_state('timer.face_flannel', 'idle') or is_state('timer.snake_plant_parent', 'idle') or is_state('timer.aloe_parent', 'idle') }}
 
 zha:
   device_config:
