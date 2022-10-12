@@ -1,3 +1,3 @@
 name: "Face Flannel"
 duration: 336:00:00
-icon: "{{iif(is_state('timer.face_flannel','idle'), 'mdi:washing-machine-alert', 'mdi:receipt') }}"
+icon_template: "{{iif(is_state('timer.face_flannel','idle'), 'mdi:washing-machine-alert', 'mdi:receipt') }}"
