@@ -41,13 +41,6 @@ template:
         unique_id: test_timer
         duration: 336:00:00
         icon_template: "{{iif(is_state('timer.test_timer','idle'), 'mdi:washing-machine-alert', 'mdi:receipt') }}"
-  - binary_sensor:
-      - name: Snake Plant Needs Water
-        unique_id: plant.snake_plant
-        state: "{{iif(strptime(states('input_datetime.water_schedule'), '%Y-%m-%d %H:%M:%S').timestamp() > (strptime(states('input_datetime.snake_plant_last_watered'), '%Y-%m-%d %H:%M:%S')+ timedelta(days=2)).timestamp(),'On', 'Off') }}"
-        attributes:
-          water_days: 14
-        icon: "{{iif(this.state == 'On', 'mdi:water-alert', 'mdi:sprout')}}"
 
 zha:
   device_config:
