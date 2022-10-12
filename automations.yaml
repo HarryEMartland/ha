@@ -224,7 +224,7 @@
       event: leave
   condition:
     - condition: template
-      value_template: '{{now().timestamp() > (strptime(states(''input_datetime.last_vacuumed.yaml''),
+      value_template: '{{now().timestamp() > (strptime(states(''input_datetime.last_vacuumed''),
     "%Y-%m-%d %H:%M:%S")+ timedelta(days=2)).timestamp() }}'
   action:
     - service: vacuum.start
