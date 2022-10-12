@@ -34,13 +34,7 @@ schedule: !include_dir_named schedules
 light: !include_dir_list lights
 input_datetime: !include_dir_named input_datetimes
 timer: !include_dir_named timers
-
 template:
-  - timer:
-      - name: "Test timer template"
-        unique_id: test_timer
-        duration: 336:00:00
-        icon_template: "{{iif(is_state('timer.test_timer','idle'), 'mdi:washing-machine-alert', 'mdi:receipt') }}"
 
 zha:
   device_config:
