@@ -231,3 +231,19 @@
       target:
         entity_id: vacuum.becki
   mode: single
+
+- id: restart-timer-tag-scanned
+  alias: Restart Timer Tag Scanned
+  description: ""
+  trigger:
+    - platform: event
+      event_type: tag_scanned
+  condition:
+    - condition: template
+      value_template: "{{ trigger.event.data.tag_id.startswith('timer.start:') }}"
+  action:
+    - service: timer.start
+      data: {}
+      target:
+        entity_id: "{{ trigger.event.data.tag_id[12:] }}"
+  mode: single
