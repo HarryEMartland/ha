@@ -1,4 +1,3 @@
-name: Face Flannel
+name: "Face Flannel {{this.state}}"
 duration: 336:00:00
-description: "{{this.state}}"
 icon: "{{this.state == 'idle' | iif('mdi:washing-machine-alert', 'mdi:receipt') }}"
