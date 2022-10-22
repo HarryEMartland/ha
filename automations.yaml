@@ -286,11 +286,11 @@
     - service: notify.notify
       data:
         message: Starting HA Core Auto Update
-      target:
-        entity_id: update.home_assistant_core_update
     - service: update.install
       data:
         backup: true
+      target:
+        entity_id: update.home_assistant_core_update
 
 - id: washing-machine-finished
   alias: "Notify that the washing machine has finished"
