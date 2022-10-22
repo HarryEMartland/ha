@@ -286,6 +286,8 @@
     - service: notify.notify
       data:
         message: Starting HA Core Auto Update
+      target:
+        entity_id: update.home_assistant_core_update
     - service: update.install
       data:
         backup: true
