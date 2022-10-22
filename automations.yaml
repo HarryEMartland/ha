@@ -283,6 +283,9 @@
 
         {{installed[0] == latest[0] and installed[1] == latest[1] and installed[2] != latest[2]}}
   action:
+    - service: notify.notify
+      data:
+        message: Starting HA Core Auto Update
     - service: update.install
       data:
         backup: true
