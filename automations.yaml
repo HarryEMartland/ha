@@ -249,29 +249,51 @@
         entity_id: "{{ trigger.event.data.tag_id[12:] }}"
   mode: single
 
-- id: maintenance-required
-  alias: Maintenance is Required
-  description: ""
+- id: date-time-tag-scanned
+  alias: Date Time Tag Scanned
+  description: "Set a date time value when scanned"
+  trigger:
+    - platform: event
+      event_type: tag_scanned
+  condition:
+    - condition: template
+      value_template: "{{ trigger.event.data.tag_id.startswith('datetime.set:') }}"
+  action:
+    - service: input_datetime.set_datetime
+      data_template:
+        datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+      target:
+        entity_id: "{{ trigger.event.data.tag_id[13:] }}"
+  mode: single
+
+- description: "Automatically update core patches"
+  id: auto-update-patches
   mode: single
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.maintenance_required
-      to: "on"
-    - platform: time
-      at: "18:00:00"
+        - update.home_assistant_core_update
+      attribute: latest_version
   condition:
-    - condition: state
-      entity_id: binary_sensor.maintenance_required
-      state: "on"
-    - condition: zone
-      entity_id: person.harry
-      zone: zone.home
+    - condition: template
+      value_template: >+
+        {%set installed = state_attr("update.home_assistant_core_update", "installed_version").split(".") %}
+
+        {%set latest = state_attr("update.home_assistant_core_update", "latest_version").split(".") %}
+
+        {{installed[0] == latest[0] and installed[1] == latest[1] and installed[2] != latest[2]}}
+  action:
+    - service: update.install
+
+- id: washing-machine-finished
+  description: "Notify that the washing machine has finished"
+  mode: single
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.washing_machine
   action:
     - service: notify.notify
       data:
-        message: Maintenance is required
-    - service: persistent_notification.create
-      data:
-        message: Maintenance Required
-        notification_id: maintenance-required
+        message: Washing Machine has Finished
