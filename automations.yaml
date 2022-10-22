@@ -284,6 +284,8 @@
         {{installed[0] == latest[0] and installed[1] == latest[1] and installed[2] != latest[2]}}
   action:
     - service: update.install
+      data:
+        backup: true
 
 - id: washing-machine-finished
   alias: "Notify that the washing machine has finished"
