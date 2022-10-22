@@ -266,7 +266,7 @@
         entity_id: "{{ trigger.event.data.tag_id[13:] }}"
   mode: single
 
-- description: "Automatically update core patches"
+- alias: "Automatically update core patches"
   id: auto-update-patches
   mode: single
   trigger:
@@ -286,7 +286,7 @@
     - service: update.install
 
 - id: washing-machine-finished
-  description: "Notify that the washing machine has finished"
+  alias: "Notify that the washing machine has finished"
   mode: single
   trigger:
     - platform: event
