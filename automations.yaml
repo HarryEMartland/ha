@@ -320,3 +320,6 @@
     - service: notify.notify
       data:
         message: Washing Machine has Finished
+        data:
+          ttl: 0
+          priority: high
