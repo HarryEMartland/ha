@@ -1,6 +1,0 @@
-platform: group
-name: "Hall Ceiling Group"
-entities:
-  - light.h1
-  - light.h2
-  - light.h3

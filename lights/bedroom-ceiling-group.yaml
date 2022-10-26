@@ -1,7 +1,0 @@
-platform: group
-name: "Bedroom Ceiling Group"
-entities:
-  - light.b1
-  - light.b2
-  - light.b3
-  - light.b4
