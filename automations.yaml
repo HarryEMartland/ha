@@ -270,7 +270,7 @@
   mode: single
 
 - alias: "Automatically update core patches"
-  id: auto-update-patches
+  id: auto-update-core-patches
   mode: single
   trigger:
     - platform: state
@@ -306,7 +306,7 @@
         message: HA Core has been updated
 
 - alias: "Automatically update OS patches"
-  id: auto-update-patches
+  id: auto-update-os-patches
   mode: single
   trigger:
     - platform: state
