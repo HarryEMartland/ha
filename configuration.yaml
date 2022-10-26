@@ -79,6 +79,15 @@ google_assistant:
     light.hall_ceiling_group:
       name: Hall Ceiling Lights
       room: Hall
+    light.bedroom_ceiling_group:
+      name: Bedroom Ceiling Lights
+      room: Bedroom
+    light.living_room_ceiling_group:
+      name: Living Room Ceiling Lights
+      room: Living Room
     light.coffee_lamp:
       name: Coffee Lamp
       room: Hall
+    light.hand_lamp:
+      name: Hand Lamp
+      room: Living Room
