@@ -1,4 +1,0 @@
-platform: group
-name: "Bedroom Side Lamp Group"
-entities:
-  - light.side_lamp
