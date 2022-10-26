@@ -91,3 +91,6 @@ google_assistant:
     light.hand_lamp:
       name: Hand Lamp
       room: Living Room
+    switch.tv:
+      name: TV
+      room: Living Room
