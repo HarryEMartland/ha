@@ -281,19 +281,65 @@
     - condition: template
       value_template: >+
         {%set installed = state_attr("update.home_assistant_core_update", "installed_version").split(".") %}
-
         {%set latest = state_attr("update.home_assistant_core_update", "latest_version").split(".") %}
-
         {{installed[0] == latest[0] and installed[1] == latest[1] and installed[2] != latest[2]}}
   action:
     - service: notify.notify
       data:
-        message: Starting HA Core Auto Update
+        message: HA Core Will be updated at 2AM
+    - wait_for_trigger:
+        - platform: time
+          at: "02:00:00"
+      continue_on_timeout: true
+      timeout:
+        hours: 30
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
     - service: update.install
       data:
         backup: true
       target:
         entity_id: update.home_assistant_core_update
+    - service: notify.notify
+      data:
+        message: HA Core has been updated
+
+- alias: "Automatically update OS patches"
+  id: auto-update-patches
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - update.home_assistant_operating_system_update
+      attribute: latest_version
+  condition:
+    - condition: template
+      value_template: >+
+        {%set installed = state_attr("update.home_assistant_operating_system_update", "installed_version").split(".") %}
+        {%set latest = state_attr("update.home_assistant_operating_system_update", "latest_version").split(".") %}
+        {{installed[0] == latest[0] and installed[1] == latest[1] and installed[2] != latest[2]}}
+  action:
+    - service: notify.notify
+      data:
+        message: HA OS Will be updated at 2AM
+    - wait_for_trigger:
+        - platform: time
+          at: "02:00:00"
+      continue_on_timeout: true
+      timeout:
+        hours: 30
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+    - service: update.install
+      data:
+        backup: true
+      target:
+        entity_id: update.home_assistant_operating_system_update
+    - service: notify.notify
+      data:
+        message: HA OS has been updated
 
 - id: washing-machine-finished
   alias: "Notify that the washing machine has finished"
