@@ -398,3 +398,22 @@
             - service: light.turn_off
               target:
                 entity_id: "{{device_attr(trigger.event.data.device_id, 'name_by_user').split(':')[1]}}"
+
+- alias: Posted
+  description: ""
+  trigger:
+    - type: opened
+      platform: device
+      device_id: ddbed06ae111b1c0b36ce30d9a8d7b25
+      entity_id: binary_sensor.letter_box_iaszone
+      domain: binary_sensor
+  condition: []
+  action:
+    - service: notify.notify
+      data:
+        message: Something has been posted
+    - service: tts.google_translate_say
+      data:
+        entity_id: media_player.living_room_speaker
+        message: Something has been posted
+  mode: single
