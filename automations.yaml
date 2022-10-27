@@ -371,6 +371,12 @@
   trigger:
     - platform: event
       event_type: zha_event
+      event_data:
+        command: "on"
+    - platform: event
+      event_type: zha_event
+      event_data:
+        command: "off"
   condition:
     - condition: template
       value_template: "{{device_attr(trigger.event.data.device_id, 'name_by_user').startswith('SW')}}"
