@@ -380,8 +380,6 @@
   condition:
     - condition: template
       value_template: "{{device_attr(trigger.event.data.device_id, 'name_by_user').startswith('SW')}}"
-    - condition: template
-      value_template: "{{trigger.event.data.command == \"off\" or trigger.event.data.command == \"on\"}}"
   action:
     - choose:
         - conditions:
