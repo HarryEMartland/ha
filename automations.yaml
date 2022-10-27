@@ -277,6 +277,8 @@
       entity_id:
         - update.home_assistant_core_update
       attribute: latest_version
+    - platform: homeassistant
+      event: start
   condition:
     - condition: template
       value_template: >+
@@ -289,7 +291,7 @@
         message: HA Core Will be updated at 2AM
     - wait_for_trigger:
         - platform: time
-          at: "02:00:00"
+          at: "03:00:00"
       continue_on_timeout: true
       timeout:
         hours: 30
@@ -313,6 +315,8 @@
       entity_id:
         - update.home_assistant_operating_system_update
       attribute: latest_version
+    - platform: homeassistant
+      event: start
   condition:
     - condition: template
       value_template: >+
