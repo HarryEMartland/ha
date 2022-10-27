@@ -297,6 +297,8 @@
         seconds: 0
         milliseconds: 0
     - service: update.install
+      data:
+        backup: true
       target:
         entity_id: update.home_assistant_core_update
     - service: notify.notify
@@ -331,8 +333,6 @@
         seconds: 0
         milliseconds: 0
     - service: update.install
-      data:
-        backup: true
       target:
         entity_id: update.home_assistant_operating_system_update
     - service: notify.notify
