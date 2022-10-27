@@ -1,3 +1,4 @@
 name: "Face Flannel"
 duration: 336:00:00
 icon: mdi:receipt
+restore: true

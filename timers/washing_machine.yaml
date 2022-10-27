@@ -1,3 +1,4 @@
 name: Washing Machine Timer
 duration: 2:00:00
 icon: mdi:washing-machine
+restore: true
