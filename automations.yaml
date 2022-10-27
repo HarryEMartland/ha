@@ -322,7 +322,7 @@
       value_template: >+
         {%set installed = state_attr("update.home_assistant_operating_system_update", "installed_version").split(".") %}
         {%set latest = state_attr("update.home_assistant_operating_system_update", "latest_version").split(".") %}
-        {{installed[0] == latest[0] and installed[1] 1= latest[1]}}
+        {{installed[0] == latest[0] and installed[1] != latest[1]}}
   action:
     - service: notify.notify
       data:
