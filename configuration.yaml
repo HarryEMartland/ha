@@ -82,6 +82,9 @@ google_assistant:
     light.bedroom_ceiling_group:
       name: Bedroom Ceiling Lights
       room: Bedroom
+    light.bedroom_side_lamp_group:
+      name: Bedroom Side Lights
+      room: Bedroom
     light.living_room_ceiling_group:
       name: Living Room Ceiling Lights
       room: Living Room
