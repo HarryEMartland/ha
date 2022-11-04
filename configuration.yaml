@@ -97,3 +97,6 @@ google_assistant:
     switch.tv:
       name: TV
       room: Living Room
+    light.ol1:
+      name: Outside Light
+      room: Outside
