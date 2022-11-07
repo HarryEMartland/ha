@@ -505,6 +505,11 @@
           zone: zone.home
           event: enter
       continue_on_timeout: false
+      timeout:
+        hours: 2
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
     - service: notify.mobile_app_pixel_6
       data:
         message: Message Becca I am home?
