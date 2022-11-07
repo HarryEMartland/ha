@@ -469,3 +469,18 @@
           actions:
             - action: TAKEN
               title: Taken
+
+- alias: Update Becca Medicine From Notification
+  id: update-becca-medicine-notification
+  description: ""
+  trigger:
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: TAKEN
+  action:
+    - service: input_datetime.set_datetime
+      data_template:
+        datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+      target:
+        entity_id: input_datetime.becca_medicine
