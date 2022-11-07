@@ -442,3 +442,30 @@
     - service: notify.notify
       data:
         message: Maintenance is required
+
+- id: becca-medicine
+  alias: Becca Medicine
+  trigger:
+    - platform: time
+      at: "18:10:00"
+    - platform: zone
+      entity_id: person.becca
+      zone: zone.cat_sanctuary
+      event: enter
+  condition:
+    - condition: time
+      after: "18:10:00"
+    - condition: template
+      value_template: "{{(strptime(states('input_datetime.becca_medicine'), '%Y-%m-%d').day) != now().day}}"
+  action:
+    - service: notify.mobile_app_pixel_6a
+      data:
+        message: Take Medicine 💊
+        data:
+          persistent: true
+          tag: becca_medicine
+          ttl: 0
+          priority: high
+          actions:
+            - action: TAKEN
+              title: Taken
