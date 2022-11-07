@@ -462,7 +462,6 @@
       data:
         message: Take Medicine 💊
         data:
-          persistent: true
           tag: becca_medicine
           ttl: 0
           priority: high
@@ -478,9 +477,16 @@
       event_type: mobile_app_notification_action
       event_data:
         action: TAKEN
+    - platform: tag
+      tag_id: datetime.set:input_datetime.becca_medicine
   action:
     - service: input_datetime.set_datetime
       data_template:
         datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
       target:
         entity_id: input_datetime.becca_medicine
+    - service: notify.mobile_app_pixel_6a
+      data:
+        message: "clear_notification"
+        data:
+          tag: "becca_medicine"
