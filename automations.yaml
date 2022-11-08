@@ -412,6 +412,7 @@
                 entity_id: "{{device_attr(trigger.event.data.device_id, 'name_by_user').split(':')[1]}}"
 
 - alias: Posted
+  id: letter-box-posted
   description: ""
   trigger:
     - type: opened
@@ -421,7 +422,7 @@
       domain: binary_sensor
   condition: []
   action:
-    - service: notify.notify
+    - service: notify.mobile_app_pixel_6
       data:
         message: Something has been posted
     - service: tts.google_translate_say
