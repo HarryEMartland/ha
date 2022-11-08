@@ -209,14 +209,24 @@
     - platform: state
       entity_id:
         - vacuum.becki
-      to: docked
-  condition: []
+      to: cleaning
   action:
-    - service: input_datetime.set_datetime
-      data_template:
-        datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
-      target:
-        entity_id: input_datetime.last_vacuumed
+    - delay:
+        hours: 0
+        minutes: 5
+        seconds: 0
+        milliseconds: 0
+    - if:
+        - condition: state
+          entity_id: vacuum.becki
+          attribute: status
+          state: cleaning
+      then:
+        - service: input_datetime.set_datetime
+          data_template:
+            datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+          target:
+            entity_id: input_datetime.last_vacuumed
   mode: single
 
 - id: 'vacuum-2-days'
