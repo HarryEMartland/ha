@@ -242,10 +242,22 @@
       value_template: '{{now().timestamp() > (strptime(states(''input_datetime.last_vacuumed''),
     "%Y-%m-%d %H:%M:%S")+ timedelta(days=2)).timestamp() }}'
   action:
-    - service: vacuum.start
-      data: {}
-      target:
-        entity_id: vacuum.becki
+    - delay:
+        hours: 0
+        minutes: 30
+        seconds: 0
+        milliseconds: 0
+    - if:
+        - condition: not
+          conditions:
+            - condition: zone
+              entity_id: person.harry
+              zone: zone.home
+      then:
+        - service: vacuum.start
+          data: {}
+          target:
+            entity_id: vacuum.becki
   mode: single
 
 - id: restart-timer-tag-scanned
