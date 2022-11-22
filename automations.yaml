@@ -168,16 +168,14 @@
   alias: "Stop casting when tv is turn off"
   mode: single
   trigger:
-    - platform: device
-      type: turned_off
-      device_id: 6b00183c77229c552960226987b6c38d
-      entity_id: switch.tv
-      domain: switch
+    - platform: state
+      entity_id:
+        - switch.tv
+      to: "off"
   action:
     - service: media_player.turn_off
-      data: {}
       target:
-        device_id: a1a0f5a1ab03578cb054a97ed13f2308
+        entity_id: media_player.living_room_tv
 
 - id: "bed-time"
   alias: "Bed Time"
