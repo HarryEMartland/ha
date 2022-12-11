@@ -40,12 +40,16 @@
       target:
         area_id: hall
 
-- id: "leave-home"
-  alias: "Leave Home"
+- alias: Leave Home
+  id: "leave-home"
   mode: single
   trigger:
     - platform: zone
       entity_id: person.harry
+      zone: zone.home
+      event: leave
+    - platform: zone
+      entity_id: person.becca
       zone: zone.home
       event: leave
   action:
@@ -55,6 +59,18 @@
     - service: switch.turn_off
       target:
         entity_id: all
+  condition:
+    - condition: not
+      conditions:
+        - condition: and
+          conditions:
+            - condition: zone
+              entity_id: person.becca
+              zone: zone.home
+            - condition: zone
+              entity_id: person.harry
+              zone: zone.home
+
 
 - id: return-home
   alias: Return Home After Sunset
