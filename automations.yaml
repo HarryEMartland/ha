@@ -565,6 +565,7 @@
 
 
 - alias: "Protect Hotspot Data"
+  id: protect-hotspot
   description: "Send notifications when I should not be using a hotspot"
   mode: single
   trigger:
