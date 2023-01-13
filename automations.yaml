@@ -562,3 +562,40 @@
     - service: notify.mobile_app_pixel_6a
       data:
         message: Harry is home
+
+
+- alias: "Protect Hotspot Data"
+  description: "Send notifications when I should not be using a hotspot"
+  mode: single
+  trigger:
+    - platform: zone
+      entity_id: person.harry
+      zone: zone.work
+      event: enter
+    - platform: zone
+      entity_id: person.harry
+      zone: zone.home
+      event: enter
+    - platform: state
+      entity_id:
+        - sensor.work_laptop_ssid
+  condition:
+    - condition: state
+      entity_id: sensor.work_laptop_ssid
+      state: Pixel_7293
+    - condition: or
+      conditions:
+        - condition: zone
+          entity_id: person.harry
+          zone: zone.home
+        - condition: zone
+          entity_id: person.harry
+          zone: zone.work
+      alias: Test if Harry is at Work or Home
+  action:
+    - service: notify.mobile_app_pixel_6
+      data:
+        message: Turn Off Hotspot
+    - service: notify.mobile_app_ipad
+      data:
+        message: Turn off Hotspot
