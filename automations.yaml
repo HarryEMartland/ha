@@ -62,7 +62,7 @@
   condition:
     - condition: not
       conditions:
-        - condition: and
+        - condition: or
           conditions:
             - condition: zone
               entity_id: person.becca
