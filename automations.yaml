@@ -627,7 +627,19 @@
       entity_id: counter.clothes_black_jeans_since_wash
       above: 10
     - platform: numeric_state
-      entity_id: counter.dark_red_jumper_since_wash
+      entity_id: counter.clothes_dark_red_jumper_since_wash
+      above: 10
+    - platform: numeric_state
+      entity_id: counter.clothes_woolly_hoodie_jumper_since_wash
+      above: 20
+    - platform: numeric_state
+      entity_id: counter.clothes_grey_jumper_since_wash
+      above: 10
+    - platform: numeric_state
+      entity_id: counter.clothes_green_jumper_since_wash
+      above: 10
+    - platform: numeric_state
+      entity_id: counter.clothes_booking_hoodie_since_wash
       above: 10
   condition: []
   action:
