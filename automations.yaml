@@ -641,6 +641,15 @@
     - platform: numeric_state
       entity_id: counter.clothes_booking_hoodie_since_wash
       above: 10
+    - platform: numeric_state
+      entity_id: counter.clothes_stripe_jumper_since_wash
+      above: 10
+    - platform: numeric_state
+      entity_id: counter.clothes_grey_pants_since_wash
+      above: 10
+    - platform: numeric_state
+      entity_id: counter.clothes_gregs_pants_since_wash
+      above: 10
   condition: []
   action:
     - service: notify.mobile_app_pixel_6
