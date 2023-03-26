@@ -13,7 +13,7 @@
     - service: logbook.log
       data_template:
         name: "Config Git Repository Updated: "
-        message: "{{trigger.to_state.name}} changed from {{trigger.from_state.state}} to {{trigger.to_state.state}} by {{ trigger.to_state.attributes.source }}"
+        message: "Git repo Updated"
     - service: notify.persistent_notification
       data_template:
         title: Config Reloaded
