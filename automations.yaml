@@ -597,7 +597,7 @@
     - service: notify.mobile_app_pixel_6
       data:
         message: Turn Off Hotspot
-    - service: notify.mobile_app_ipad
+    - service: notify.mobile_app_c02c90sllvdp
       data:
         message: Turn off Hotspot
 - id: 'clothes-tag-scanned'
